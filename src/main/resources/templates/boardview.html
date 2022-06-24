@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>게시글 상세페이지</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</head>
+
+<style>
+    a:link{
+        text-decoration:none;
+    }
+    .container{
+        margin:auto;
+    }
+
+    .col{
+        margin-top : 100px;
+    }
+
+</style>
+
+<body>
+<div class=" p-3 text-white text-center">
+
+    <div class="container">
+        <table class="table table-striped table-bordered">
+        <tr><th style="width:300px;"><h2 th:text="${board.title}">제목입니다.</h2></th></tr>
+            <tr>
+                <td style="width:300px; height:200px;"><p th:text="${board.content}">내용이 들어갈 부분입니다.</p></td>
+            </tr>
+
+        </table>
+    </div>
+</div>
+
+<div class="container" style="margin-left:90px">
+        <a th:href="@{${board.filepath}}">
+            <button type="button" class="btn btn-warning"> 사진 확인하기</button>
+        </a>
+
+        <a th:href="@{/board/modify/{id}(id = ${board.id})}">
+            <button type="button" class="btn btn-info">수정</button>
+        </a>
+
+        <a th:href="@{/board/delete(id=${board.id})}">
+            <button type="button" class="btn btn-danger">글 삭제</button>
+        </a>
+</div>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
